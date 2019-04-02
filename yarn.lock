@@ -4689,7 +4689,7 @@ hoek@4.x.x:
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.1.tgz#9634502aa12c445dd5a7c5734b572bb8738aacbb"
   integrity sha512-QLg82fGkfnJ/4iy1xZ81/9SIJiq1NGFUMGs6ParyjBZr6jW2Ufj/snDqTHixNlHdPNwN2RLVD0Pi3igeK9+JfA==
 
-hoist-non-react-statics@^3.1.0:
+hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.0.tgz#b09178f0122184fb95acf525daaecb4d8f45958b"
   integrity sha512-0XsbTXxgiaCDYDIWFcwkmerZPSwywfUqYmwT4jzewKTQSWoE6FCMoUVOeBJWK3E/CrWbxRG3m5GzY4lnIwGRBA==
@@ -6204,6 +6204,11 @@ lodash.camelcase@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
   integrity sha1-soqmKIorn8ZRA1x3EfZathkDMaY=
+
+lodash.isequal@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+  integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
 
 lodash.memoize@^4.1.2:
   version "4.1.2"
@@ -8300,6 +8305,18 @@ react-apollo-hooks@^0.4.4:
   integrity sha512-UavpOHbqGp4r0Nsqa8ShybGb6vyGcwAaxSjO/VRmj3wcjKx+Bw6Br+wu+1rkvYRSkeDYppq/HYNzMX5oIU+5/A==
   dependencies:
     lodash "^4.17.11"
+
+react-apollo@^2.5.3:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-2.5.3.tgz#9844a522894a6e0392f6a982c6052348d9a4ae12"
+  integrity sha512-sBh7M3h4xdbck8NFnn1nlUG0mD0hCTeIcvov4A8hagxjOyTVSakoum+DP6rYNaHuAZFDS3oNurNNSbGZmgoU6g==
+  dependencies:
+    apollo-utilities "^1.2.1"
+    hoist-non-react-statics "^3.3.0"
+    lodash.isequal "^4.5.0"
+    prop-types "^15.7.2"
+    ts-invariant "^0.3.2"
+    tslib "^1.9.3"
 
 react-app-polyfill@^0.2.2:
   version "0.2.2"
