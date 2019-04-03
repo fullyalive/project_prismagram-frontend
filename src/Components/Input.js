@@ -4,18 +4,36 @@ import styled from "styled-components";
 
 const Container = styled.input`
   height: 35px;
-  font-size: 12px;
+  padding: 0px 15px;
   border: 0;
   border: ${props => props.theme.boxBorder};
   border-radius: ${props => props.theme.borderRadius};
+  font-size: 12px;
   background-color: ${props => props.theme.bgColor};
-  padding: 0px 15px;
 `;
 
-const Input = ({ placeholder }) => <Container placeholder={placeholder} />;
+const Input = ({
+  placeholder,
+  required = true,
+  value,
+  onChange,
+  type = "text"
+}) => (
+  <Container
+    placeholder={placeholder}
+    required={required}
+    value={value}
+    onChange={onChange}
+    type={type}
+  />
+);
 
 Input.propTypes = {
-    placeholder: PropTypes.string.isRequired
+  placeholder: PropTypes.string.isRequired,
+  required: PropTypes.bool,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  type: PropTypes.string
 };
 
 export default Input;
