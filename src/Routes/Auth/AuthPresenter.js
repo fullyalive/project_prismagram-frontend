@@ -53,16 +53,18 @@ export default ({
   lastName,
   email,
   setAction,
-  onSubmit
+  onSubmit,
+  secret
 }) => (
   <Wrapper>
     <Form>
-      {action === "logIn" ? (
+      {action === "logIn" && (
         <form onSubmit={onSubmit}>
           <Input placeholder={"이메일"} {...email} type="email" />
           <Button text={"로그인"} />
         </form>
-      ) : (
+      )}
+      {action === "signUp" && (
         <form onSubmit={onSubmit}>
           <Input placeholder={"이름"} {...firstName} />
           <Input placeholder={"성"} {...lastName} />
@@ -71,18 +73,31 @@ export default ({
           <Button text={"회원가입"} />
         </form>
       )}
-    </Form>
-    <StateChanger>
-      {action === "logIn" ? (
-        <>
-          회원이 아니신가요?{" "}
-          <Link onClick={() => setAction("signUp")}>Sign up</Link>
-        </>
-      ) : (
-        <>
-          회원이신가요? <Link onClick={() => setAction("logIn")}>Log in</Link>
-        </>
+      {action === "confirm" && (
+        <form onSubmit={onSubmit}>
+          <Input
+            placeholder="이메일로 전송된 인증코드를 입력해주세요"
+            required
+            {...secret}
+          />
+          <Button text={"확인"} />
+        </form>
       )}
-    </StateChanger>
+    </Form>
+
+    {action !== "confirm" && (
+      <StateChanger>
+        {action === "logIn" ? (
+          <>
+            회원이 아니신가요?{" "}
+            <Link onClick={() => setAction("signUp")}>회원가입</Link>
+          </>
+        ) : (
+          <>
+            회원이신가요? <Link onClick={() => setAction("logIn")}>로그인</Link>
+          </>
+        )}
+      </StateChanger>
+    )}
   </Wrapper>
 );
