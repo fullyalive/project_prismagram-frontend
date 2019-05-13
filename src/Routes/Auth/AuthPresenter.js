@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from "react-helmet";
 import styled from "styled-components";
 import Input from "../../Components/Input";
 import Button from "../../Components/Button";
@@ -59,29 +60,45 @@ export default ({
   <Wrapper>
     <Form>
       {action === "logIn" && (
-        <form onSubmit={onSubmit}>
-          <Input placeholder={"이메일"} {...email} type="email" />
-          <Button text={"로그인"} />
-        </form>
+        <>
+          <Helmet>
+            <title>로그인 | 인스타그램</title>
+          </Helmet>
+          <form onSubmit={onSubmit}>
+            <Input placeholder={"이메일"} {...email} type="email" />
+            <Button text={"로그인"} />
+          </form>
+        </>
       )}
+
       {action === "signUp" && (
-        <form onSubmit={onSubmit}>
-          <Input placeholder={"이름"} {...firstName} />
-          <Input placeholder={"성"} {...lastName} />
-          <Input placeholder={"이메일"} {...email} type="email" />
-          <Input placeholder={"닉네임"} {...username} />
-          <Button text={"회원가입"} />
-        </form>
+        <>
+          <Helmet>
+            <title>회원가입 | 인스타그램</title>
+          </Helmet>
+          <form onSubmit={onSubmit}>
+            <Input placeholder={"이름"} {...firstName} />
+            <Input placeholder={"성"} {...lastName} />
+            <Input placeholder={"이메일"} {...email} type="email" />
+            <Input placeholder={"닉네임"} {...username} />
+            <Button text={"회원가입"} />
+          </form>
+        </>
       )}
       {action === "confirm" && (
-        <form onSubmit={onSubmit}>
-          <Input
-            placeholder="이메일로 전송된 인증코드를 입력해주세요"
-            required
-            {...secret}
-          />
-          <Button text={"확인"} />
-        </form>
+        <>
+          <Helmet>
+            <title>Confirm Secret | Prismagram</title>
+          </Helmet>
+          <form onSubmit={onSubmit}>
+            <Input
+              placeholder="이메일로 전송된 인증코드를 입력해주세요"
+              required
+              {...secret}
+            />
+            <Button text={"로그인"} />
+          </form>
+        </>
       )}
     </Form>
 
